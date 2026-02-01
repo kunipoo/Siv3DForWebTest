@@ -3,7 +3,7 @@
 ## 概要
 
 Webブラウザで動作する Siv3D プログラミングをちょ～簡単に始めるための環境です。  
-このリポジトリをcloneして、Main.cppをいぢれば、docs/フォルダにブラウザで動作させるためのファイル一式ができます。  
+このリポジトリをForkして、Main.cppをいぢれば、docs/フォルダにブラウザで動作させるためのファイル一式ができます。  
 
 ## そのままgithubで公開!
 
@@ -16,3 +16,4 @@ Webブラウザで動作する Siv3D プログラミングをちょ～簡単に�
   - このリポジトリに含まれるファイルは、OpenSiv3D フォルダ配下のファイルを除いて、ライセンス表記なしで自由に利用可能です
 - Siv3D 本体のライセンスは <https://siv3d.jp/web/license/0.6.5/license.html> を参照してください
 - emscripten によって出力された JavaScript ファイルは [MIT ライセンス](https://github.com/emscripten-core/emscripten/blob/main/LICENSE) に従います
+
