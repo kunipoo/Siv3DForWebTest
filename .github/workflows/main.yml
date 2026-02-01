@@ -3,8 +3,16 @@ name: Build
 on:
   push:
     branches: [ "main", "master" ]
+    paths:
+      - 'Main.cpp'
+      - 'Makefile'
+      - '.github/workflows/main.yml'
   pull_request:
     branches: [ "main", "master" ]
+    paths:
+      - 'Main.cpp'
+      - 'Makefile'
+      - '.github/workflows/main.yml'
 
 jobs:
   build:
@@ -28,7 +36,6 @@ jobs:
         emmake make -j$(nproc)
         mkdir -p docs
         cp output/index.* docs/
-        cp favicon.ico docs/
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add docs
