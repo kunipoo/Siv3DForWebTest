@@ -65,9 +65,8 @@ LDFLAGS = \
 	--post-js OpenSiv3D/Templates/Embeddable/web-player.js \
 	--js-library OpenSiv3D/lib/Siv3D/Siv3D.js
 
-# プリコンパイル済みヘッダー (PCH) の設定
-PCH_SRC = OpenSiv3D/include/Siv3D/Siv3D.hpp
-PCH_OUT = output/Siv3D.hpp.pch
+# ソースファイル
+SOURCES = $(wildcard *.cpp)
 
 .PHONY: all
 
@@ -76,12 +75,8 @@ all: output output/index.html
 output:
 	mkdir -p output
 
-# PCHの生成ルール
-$(PCH_OUT): $(PCH_SRC) | output
-	$(CXX) $(CXXFLAGS) -x c++-header $(PCH_SRC) -o $(PCH_OUT)
-
-output/index.html: Main.cpp $(PCH_OUT)
-	$(CXX) Main.cpp $(CXXFLAGS) -include-pch $(PCH_OUT) $(LDFLAGS) -o output/index.html 2> build.log; \
+output/index.html: $(SOURCES) | output
+	$(CXX) $(SOURCES) $(CXXFLAGS) $(LDFLAGS) -o output/index.html 2> build.log; \
 	RESULT=$$?; \
 	grep -v "warning: Asyncify addlist contained a" build.log; \
 	rm -f build.log; \
@@ -89,6 +84,3 @@ output/index.html: Main.cpp $(PCH_OUT)
 
 clean:
 	rm -rf output
-
-install:
-	sudo cp output/index.* /var/www/html
