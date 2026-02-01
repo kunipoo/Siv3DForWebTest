@@ -7,8 +7,8 @@ Webブラウザで動作する Siv3D プログラミングを簡単に始める�
 
 ## そのまま簡単にgithubで公開可能
 
-<https://qiita.com/comefrombottom/items/973cab41b7997588ba72>  
-初回は上記の(1)と(6)をする必要があります。  
+![image](README.png)  
+初回は、Setting > Pages から Branch の設定を main /docs にして Saveを押す必要があります。
 
 ## ライセンス表記
 
@@ -20,4 +20,5 @@ Webブラウザで動作する Siv3D プログラミングを簡単に始める�
 ## 謝辞
 
 これは <https://github.com/nokotan/OpenSiv3DForWeb-VSCode> をベースに作成しました。
+
 
