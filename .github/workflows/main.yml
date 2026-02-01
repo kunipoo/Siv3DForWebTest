@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - uses: actions/checkout@v4
@@ -23,7 +25,11 @@ jobs:
 
     - name: Build
       run: |
-        mkdir -p build
-        cd build
-        emcmake cmake .. -DCMAKE_BUILD_TYPE=Release
         emmake make -j$(nproc)
+        mkdir -p docs
+        cp output/index.* docs/
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add docs
+        git commit -m "Update docs" || echo "No changes to commit"
+        git push origin HEAD:${{ github.ref }}
